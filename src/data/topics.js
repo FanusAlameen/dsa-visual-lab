@@ -6,7 +6,16 @@ export const topics = [
     description: 'Build intuition for traversals, two pointers, sliding windows, and prefix sums.',
     status: 'Start here',
     lessons: [
-      { title: 'Find the maximum length of a balanced binary subarray', difficulty: 'Medium', type: 'Interactive', description: 'See why a repeated prefix sum means the numbers of 0s and 1s balance out.', href: '#find-max-length' },
+      {
+        id: 'find-max-length',
+        title: '525. Contiguous Array',
+        difficulty: 'Medium',
+        type: 'Interactive',
+        status: 'available',
+        description: 'Find the longest contiguous subarray with equal numbers of 0s and 1s using prefix sums and a hashmap.',
+        path: '/arrays/525-contiguous-array',
+        leetcodeUrl: 'https://leetcode.com/problems/contiguous-array/description/',
+      },
     ],
   },
   { id: 'strings', title: 'Strings', number: '02', description: 'Explore character counts, windows, matching, and string transformations.', status: 'Coming next', lessons: [] },
