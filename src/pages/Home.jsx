@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { topics } from '../data/topics.js'
 import TopicCard from '../components/TopicCard.jsx'
 import FindMaxLength from '../visualizations/FindMaxLength.jsx'
+import SubarraySumEqualsK from '../visualizations/SubarraySumEqualsK.jsx'
 
 function ThemeToggle({ theme, onToggle }) {
   const isDark = theme === 'dark'
@@ -15,22 +16,14 @@ function ThemeToggle({ theme, onToggle }) {
 
 export default function Home() {
   const [theme, setTheme] = useState(() => {
-    try {
-      return localStorage.getItem('dsa-visual-lab-theme') || 'light'
-    } catch {
-      return 'light'
-    }
+    try { return localStorage.getItem('dsa-visual-lab-theme') || 'light' } catch { return 'light' }
   })
   const [activeTopicId, setActiveTopicId] = useState(null)
   const [activeLessonId, setActiveLessonId] = useState(null)
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme
-    try {
-      localStorage.setItem('dsa-visual-lab-theme', theme)
-    } catch {
-      // The theme still works for this session if storage is unavailable.
-    }
+    try { localStorage.setItem('dsa-visual-lab-theme', theme) } catch { /* Theme still works for this session. */ }
   }, [theme])
 
   const selectedTopic = topics.find((topic) => topic.id === activeTopicId)
@@ -41,19 +34,16 @@ export default function Home() {
     setActiveLessonId(null)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
-
   function openLesson(lesson) {
     if (lesson.status !== 'available') return
     setActiveLessonId(lesson.id)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
-
   function goHome() {
     setActiveTopicId(null)
     setActiveLessonId(null)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
-
   function goToTopic() {
     setActiveLessonId(null)
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -88,7 +78,6 @@ export default function Home() {
               <div className="art-caption"><span className="art-pulse" /> A repeated sum reveals a balanced range</div>
             </div>
           </section>
-
           <section className="topics-section" id="topics">
             <div className="section-heading"><div><span className="section-kicker">YOUR LEARNING MAP</span><h2>Explore by topic</h2><p>Choose a topic to browse its problems. Open a lesson when you're ready to dry-run it.</p></div><span className="topic-count">{topics.length} TOPICS</span></div>
             <div className="topic-grid">{topics.map((topic) => <TopicCard key={topic.id} topic={topic} onOpen={() => openTopic(topic)} />)}</div>
@@ -99,11 +88,7 @@ export default function Home() {
       {selectedTopic && !selectedLesson && (
         <section className="library-view">
           <button className="back-link" type="button" onClick={goHome}>← All topics</button>
-          <div className="library-heading">
-            <span className="section-kicker">TOPIC {selectedTopic.number}</span>
-            <h1>{selectedTopic.title}</h1>
-            <p>{selectedTopic.description}</p>
-          </div>
+          <div className="library-heading"><span className="section-kicker">TOPIC {selectedTopic.number}</span><h1>{selectedTopic.title}</h1><p>{selectedTopic.description}</p></div>
           <div className="lesson-list-heading"><div><h2>Problems & visualizations</h2><p>Select an available lesson to open its interactive dry run.</p></div><span className="topic-count">{selectedTopic.lessons.filter((lesson) => lesson.status === 'available').length} AVAILABLE</span></div>
           <div className="lesson-list">
             {selectedTopic.lessons.map((lesson, index) => (
@@ -121,11 +106,10 @@ export default function Home() {
       {selectedTopic && selectedLesson && (
         <section className="lesson-view">
           <div className="breadcrumbs"><button type="button" onClick={goHome}>All topics</button><span>/</span><button type="button" onClick={goToTopic}>{selectedTopic.title}</button><span>/</span><span>{selectedLesson.title}</span></div>
-          {selectedLesson.id === 'find-max-length' ? <FindMaxLength /> : <div className="panel"><h2>Lesson not found</h2><button className="button primary" onClick={goToTopic}>Back to problems</button></div>}
+          {selectedLesson.id === 'find-max-length' ? <FindMaxLength /> : selectedLesson.id === 'subarray-sum' ? <SubarraySumEqualsK /> : <div className="panel"><h2>Lesson not found</h2><button className="button primary" onClick={goToTopic}>Back to problems</button></div>}
           <button className="back-link lesson-back-link" type="button" onClick={goToTopic}>← Back to {selectedTopic.title} problems</button>
         </section>
       )}
-
       <footer className="footer"><span>DSA VISUAL LAB</span><span>Understand the why. Remember the how.</span></footer>
     </main>
   )
