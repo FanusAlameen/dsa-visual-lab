@@ -31,7 +31,7 @@ jobs:
         run: npm install
       - name: Build site
         run: npm run build
-      - name: Configure GitHub Pages
+      - name: Add SPA fallback for direct lesson URLs\n        run: cp dist/index.html dist/404.html\n      - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v4

@@ -47,9 +47,27 @@ function buildTrace(nums) {
   return trace
 }
 
+
+const PYTHON_CODE = `class Solution:\n    def findMaxLength(self, nums: list[int]) -> int:\n        first_index = {0: -1}\n        prefix_sum = 0\n        longest = 0\n\n        for i, num in enumerate(nums):\n            prefix_sum += 1 if num == 1 else -1\n            if prefix_sum in first_index:\n                longest = max(longest, i - first_index[prefix_sum])\n            else:\n                first_index[prefix_sum] = i\n\n        return longest`\n\nconst JAVA_CODE = `import java.util.HashMap;\nimport java.util.Map;\n\nclass Solution {\n    public int findMaxLength(int[] nums) {\n        Map<Integer, Integer> firstIndex = new HashMap<>();\n        firstIndex.put(0, -1);\n        int prefixSum = 0;\n        int longest = 0;\n\n        for (int i = 0; i < nums.length; i++) {\n            prefixSum += nums[i] == 1 ? 1 : -1;\n            if (firstIndex.containsKey(prefixSum)) {\n                longest = Math.max(longest, i - firstIndex.get(prefixSum));\n            } else {\n                firstIndex.put(prefixSum, i);\n            }\n        }\n        return longest;\n    }\n}`
+
+function CodeSolutions() {
+  const [language, setLanguage] = useState('python')
+  const code = language === 'python' ? PYTHON_CODE : JAVA_CODE
+  async function copyCode() {
+    try { await navigator.clipboard.writeText(code) } catch { /* Clipboard permission may be unavailable. */ }
+  }
+  return (
+    <section className="code-solutions panel">
+      <div className="code-heading"><div><span className="section-kicker">REFERENCE IMPLEMENTATIONS</span><h2>Solution code</h2><p>Compare the implementation with each step of the visual dry run.</p></div><div className="code-actions"><div className="language-switch" role="group" aria-label="Choose programming language"><button type="button" className={language === 'python' ? 'selected' : ''} onClick={() => setLanguage('python')}>Python</button><button type="button" className={language === 'java' ? 'selected' : ''} onClick={() => setLanguage('java')}>Java</button></div><button className="button secondary copy-code-button" type="button" onClick={copyCode}>Copy code</button></div></div>
+      <pre className="code-block"><code>{code}</code></pre>
+      <p className="code-footnote">Core idea: treat 0 as −1 and 1 as +1. If a prefix sum repeats, the elements between its first occurrence and the current index have a sum of zero.</p>
+    </section>
+  )
+}
+
 const DEFAULT_INPUT = '0, 1, 0, 1, 1, 0'
 
-export default function FindMaxLength() {
+export default function FindMaxLength({ leetcodeUrl = 'https://leetcode.com/problems/contiguous-array/description/' } = {}) {
   const [input, setInput] = useState(DEFAULT_INPUT)
   const [activeStep, setActiveStep] = useState(0)
   const [inputError, setInputError] = useState('')
@@ -82,7 +100,7 @@ export default function FindMaxLength() {
       <div className="section-kicker">INTERACTIVE WALKTHROUGH · ARRAYS + HASHING</div>
       <div className="visualizer-heading">
         <div><h2>Find Max Length</h2><p>Longest contiguous subarray with equal numbers of 0s and 1s.</p></div>
-        <span className="complexity-chip">O(n) time · O(n) space</span>
+        <div className="visualizer-links"><span className="complexity-chip">O(n) time · O(n) space</span><a className="button secondary leetcode-inline-link" href={leetcodeUrl} target="_blank" rel="noreferrer">LeetCode 525 ↗</a></div>
       </div>
 
       <div className="input-row">
@@ -124,6 +142,7 @@ export default function FindMaxLength() {
       <div className="step-controls"><button className="button secondary" onClick={() => setActiveStep((s) => Math.max(0, s - 1))} disabled={activeStep === 0}>← Previous</button><div className="step-progress" aria-label={`Step ${activeStep} of ${nums.length}`}><div style={{ width: `${(activeStep / nums.length) * 100}%` }} /></div><button className="button primary" onClick={() => setActiveStep((s) => Math.min(nums.length, s + 1))} disabled={activeStep === nums.length}>Next step →</button></div>
       <button className="reset-button" onClick={() => setActiveStep(0)}>Reset walkthrough</button>
       {activeStep === nums.length && <div className="final-answer"><span>Final answer</span><strong>{step.longest}</strong><p>The longest balanced subarray has length {step.longest}.</p></div>}
+      <CodeSolutions />
     </section>
   )
 }
