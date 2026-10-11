@@ -28,6 +28,24 @@ export const topics = [
         leetcodeUrl:
           "https://leetcode.com/problems/subarray-sum-equals-k/description/",
       },
+      {
+        id: "insert-interval",
+        title: "57. Insert Interval",
+        difficulty: "Medium",
+        status: "available",
+        description:
+          "Insert a new interval into a sorted list, merging overlapping intervals while preserving order.",
+        leetcodeUrl: "https://leetcode.com/problems/insert-interval/",
+      },
+      {
+        id: "non-overlapping-intervals",
+        title: "435. Non-overlapping Intervals",
+        difficulty: "Medium",
+        status: "available",
+        description:
+          "Use a greedy strategy: sort by end time, keep compatible intervals, and count removals.",
+        leetcodeUrl: "https://leetcode.com/problems/non-overlapping-intervals/",
+      },
     ],
   },
   {

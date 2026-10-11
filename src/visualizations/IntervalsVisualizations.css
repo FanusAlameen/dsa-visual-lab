@@ -1,0 +1,46 @@
+.iv-visualizer { margin-top: 16px; }
+.iv-input-panel { display: grid; gap: 8px; margin-top: 18px; padding: 16px; border: 1px solid var(--border); border-radius: 14px; background: var(--panel); }
+.iv-input-panel label { font-weight: 650; }
+.iv-input-panel input { width: 100%; min-width: 0; border: 1px solid var(--border); border-radius: 9px; background: var(--bg); color: var(--text); padding: 10px 12px; font: inherit; }
+.iv-input-panel small, .iv-helper, .iv-footnote { color: var(--muted); font-size: .88rem; }
+.iv-input-panel .button { justify-self: start; margin-top: 4px; }
+.iv-error { margin: 4px 0 0; color: #d95555; font-weight: 600; }
+.iv-state-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 16px; }
+.iv-state-card { min-width: 0; padding: 13px; border: 1px solid var(--border); border-radius: 12px; background: var(--panel); }
+.iv-state-card span { display: block; color: var(--muted); font-size: .82rem; }
+.iv-state-card strong { display: block; margin-top: 5px; font-size: 1.3rem; overflow-wrap: anywhere; }
+.iv-state-highlight { border-color: #58a77b; }
+.iv-visual-section { margin-top: 18px; }
+.iv-section-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+.iv-section-heading h3 { margin: 0; font-size: 1rem; }
+.iv-section-heading span { color: var(--muted); font-size: .85rem; }
+.iv-label { display: block; margin: 0 0 8px; color: var(--muted); font-size: .85rem; }
+.iv-timeline-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.iv-interval-row { display: flex; align-items: stretch; gap: 9px; flex-wrap: wrap; }
+.iv-interval { position: relative; display: flex; align-items: center; justify-content: center; gap: 6px; min-width: 88px; padding: 11px 10px 25px; border: 1px solid var(--border); border-radius: 11px; background: var(--panel); transition: border-color .15s, transform .15s; }
+.iv-interval.is-active { border: 2px solid #58a77b; padding: 10px 9px 24px; transform: translateY(-2px); }
+.iv-interval.is-removed { opacity: .65; border-style: dashed; }
+.iv-endpoint { font-size: 1.05rem; font-weight: 750; }
+.iv-range-line { width: 20px; height: 3px; border-radius: 5px; background: #58a77b; }
+.iv-interval small { position: absolute; right: 0; bottom: 5px; left: 0; text-align: center; color: var(--muted); font-size: .7rem; }
+.iv-empty { margin: 0; color: var(--muted); font-size: .9rem; }
+.iv-explanation { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 12px; margin-top: 18px; padding: 16px; border: 1px solid var(--border); border-radius: 14px; background: var(--panel); }
+.iv-decision-icon { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: var(--bg); font-size: 1.2rem; font-weight: 800; }
+.iv-explanation h3 { margin: 4px 0 7px; }
+.iv-explanation p { margin: 0 0 10px; line-height: 1.6; }
+.iv-explanation code { display: inline-block; max-width: 100%; padding: 6px 8px; border-radius: 7px; background: var(--bg); white-space: normal; overflow-wrap: anywhere; font-size: .82rem; }
+.iv-result-block { margin-top: 18px; padding: 14px; border: 1px solid var(--border); border-radius: 12px; }
+.iv-two-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.iv-two-columns .iv-result-block { min-width: 0; }
+.iv-final-answer { margin-top: 18px; padding: 18px; border: 1px solid #58a77b; border-radius: 14px; background: var(--panel); }
+.iv-final-answer > span { display: block; color: var(--muted); font-size: .9rem; }
+.iv-final-answer > strong { display: block; margin: 3px 0 8px; font-size: 2rem; }
+.iv-final-answer p { margin-bottom: 0; }
+.iv-final-pills { margin-top: 10px; }
+.iv-code-details { margin-top: 20px; padding: 14px; border: 1px solid var(--border); border-radius: 12px; }
+.iv-code-details summary { cursor: pointer; font-weight: 700; }
+.iv-code-details pre { max-width: 100%; overflow: auto; padding: 14px; border-radius: 10px; background: var(--panel); font-size: .85rem; line-height: 1.55; }
+.iv-code-details pre code { white-space: pre; }
+.iv-code-details .button { margin-top: 4px; }
+.iv-footnote { margin-top: 16px; line-height: 1.55; }
+@media (max-width: 700px) { .iv-state-grid { grid-template-columns: 1fr; } .iv-timeline-row, .iv-two-columns { grid-template-columns: 1fr; } .iv-interval-row { gap: 7px; } .iv-interval { min-width: 78px; } }
