@@ -57,20 +57,13 @@ export const topics = [
     status: "Coming next",
     lessons: [
       {
-        id: "valid-anagram",
-        title: "Valid Anagram",
+        id: "capitalize-title",
+        title: "2129. Capitalize the Title",
         difficulty: "Easy",
-        status: "planned",
+        status: "available",
         description:
-          "Compare character frequencies to see whether two strings contain the same letters.",
-      },
-      {
-        id: "longest-substring",
-        title: "Longest Substring Without Repeating Characters",
-        difficulty: "Medium",
-        status: "planned",
-        description:
-          "Track a moving window while keeping every character unique.",
+          "Use two pointers to lowercase each word, then capitalize its first character only when the word has more than two characters.",
+        leetcodeUrl: "https://leetcode.com/problems/capitalize-the-title/",
       },
       {
         id: "palindrome",

@@ -5,6 +5,7 @@ import FindMaxLength from "../visualizations/FindMaxLength.jsx";
 import SubarraySumEqualsK from "../visualizations/SubarraySumEqualsK.jsx";
 import InsertInterval from "../visualizations/InsertInterval.jsx";
 import NonOverlappingIntervals from "../visualizations/NonOverlappingIntervals.jsx";
+import CapitalizeTitle from "../visualizations/CapitalizeTitle.jsx";
 
 function ThemeToggle({ theme, onToggle }) {
   const isDark = theme === "dark";
@@ -279,6 +280,8 @@ export default function Home() {
             <InsertInterval />
           ) : selectedLesson.id === "non-overlapping-intervals" ? (
             <NonOverlappingIntervals />
+          ) : selectedLesson.id === "capitalize-title" ? (
+            <CapitalizeTitle />
           ) : (
             <div className="panel">
               <h2>Lesson not found</h2>
