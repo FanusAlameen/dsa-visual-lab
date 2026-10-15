@@ -1,0 +1,357 @@
+.sp-complexity {
+  margin-top: 22px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.sp-complexity h3 {
+  margin: 0 0 12px;
+}
+
+.sp-complexity-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.sp-complexity-grid > div {
+  padding: 12px;
+  border-radius: 9px;
+  background: var(--panel);
+}
+
+.sp-complexity-grid small {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+.sp-complexity-grid strong {
+  font-size: 1.05rem;
+}
+
+.sp-complexity > p {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+  .sp-complexity-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sp-visualizer {
+  overflow: hidden;
+}
+.sp-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 14px 0 22px;
+}
+.sp-heading h2 {
+  margin: 0 0 6px;
+}
+.sp-heading p,
+.sp-code-heading p {
+  margin: 0;
+  color: var(--muted);
+}
+.sp-input-label {
+  display: block;
+  font-weight: 650;
+  margin-bottom: 8px;
+}
+.sp-input-row {
+  display: flex;
+  gap: 8px;
+}
+.sp-input-row input {
+  flex: 1;
+  min-width: 0;
+}
+.sp-muted {
+  display: block;
+  margin-top: 7px;
+  color: var(--muted);
+}
+.sp-error {
+  color: var(--danger, #c24141);
+}
+.sp-output {
+  margin-top: 18px;
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+}
+.sp-output > span,
+.sp-state small,
+.sp-calculation small,
+.sp-final small {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+.sp-char-array {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.sp-char-cell {
+  min-width: 38px;
+  min-height: 55px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+}
+.sp-char-cell small {
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+.sp-char-cell strong {
+  font-size: 1.08rem;
+}
+.sp-char-cell.sp-char-active {
+  border: 2px solid var(--green, #269c67);
+  background: var(--green-soft, rgba(38, 156, 103, 0.13));
+  padding: 4px;
+}
+.sp-output p {
+  overflow-wrap: anywhere;
+  margin: 12px 0 0;
+}
+.sp-state {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.sp-state > span {
+  flex: 1;
+  min-width: 140px;
+  padding: 12px;
+  border-radius: 9px;
+  background: var(--panel);
+  overflow-wrap: anywhere;
+}
+.sp-state strong {
+  display: block;
+  font-size: 0.95rem;
+}
+.sp-explanation {
+  margin-top: 14px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.sp-explanation h3 {
+  margin: 6px 0 8px;
+}
+.sp-explanation > p {
+  line-height: 1.6;
+  margin: 0 0 14px;
+}
+.sp-calculation {
+  display: grid;
+  gap: 5px;
+  padding: 11px;
+  border-radius: 9px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+}
+.sp-calculation code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.sp-final {
+  display: grid;
+  gap: 5px;
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid var(--green, #269c67);
+  border-radius: 9px;
+  overflow-wrap: anywhere;
+}
+.sp-final strong {
+  font-size: 1.15rem;
+}
+.sp-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+.sp-progress {
+  flex: 1;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: var(--border);
+}
+.sp-progress > div {
+  height: 100%;
+  background: var(--green, #269c67);
+  transition: width 0.15s ease;
+}
+.sp-reset-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+.sp-reset-row button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+}
+.sp-code-heading {
+  margin-top: 26px;
+}
+.sp-code-heading h3 {
+  margin: 0 0 5px;
+}
+.sp-code-heading p {
+  font-size: 0.82rem;
+}
+.sp-editor {
+  margin-top: 12px;
+  overflow: hidden;
+  border: 1px solid #283346;
+  border-radius: 12px;
+  background: #0d1117;
+  color: #e6edf3;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+}
+.sp-editor-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: #161b22;
+  border-bottom: 1px solid #283346;
+  color: #c9d1d9;
+  font-size: 0.8rem;
+}
+.sp-lights {
+  display: flex;
+  gap: 5px;
+}
+.sp-lights i {
+  display: block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #f87171;
+}
+.sp-lights i:nth-child(2) {
+  background: #fbbf24;
+}
+.sp-lights i:nth-child(3) {
+  background: #4ade80;
+}
+.sp-language {
+  margin-left: auto;
+  color: #8b949e;
+}
+.sp-code {
+  margin: 0;
+  padding: 10px 0;
+  overflow: auto;
+  font:
+    13px/1.8 ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Consolas,
+    monospace;
+  tab-size: 4;
+}
+.sp-code-line {
+  display: flex;
+  min-width: max-content;
+  padding-right: 20px;
+  border-left: 3px solid transparent;
+}
+.sp-line-active {
+  background: #1f2a3a;
+  border-left-color: #58a6ff;
+}
+.sp-line-number {
+  flex: 0 0 42px;
+  width: 42px;
+  padding-right: 12px;
+  text-align: right;
+  color: #6e7681;
+  user-select: none;
+}
+.sp-source {
+  white-space: pre;
+}
+.sp-keyword {
+  color: #ff7b72;
+  font-weight: 650;
+}
+.sp-string {
+  color: #a5d6ff;
+}
+.sp-number {
+  color: #79c0ff;
+}
+.sp-builtin {
+  color: #d2a8ff;
+}
+.sp-plain {
+  color: #e6edf3;
+}
+.sp-editor-status {
+  display: flex;
+  gap: 16px;
+  padding: 7px 12px;
+  border-top: 1px solid #283346;
+  background: #161b22;
+  color: #8b949e;
+  font-size: 0.72rem;
+}
+.sp-editor-status span:first-child {
+  margin-right: auto;
+  color: #3fb950;
+}
+@media (max-width: 600px) {
+  .sp-input-row {
+    flex-direction: column;
+  }
+  .sp-controls {
+    flex-wrap: wrap;
+  }
+  .sp-controls .sp-progress {
+    order: 3;
+    flex-basis: 100%;
+  }
+  .sp-controls button {
+    flex: 1;
+  }
+  .sp-char-cell {
+    min-width: 32px;
+  }
+}

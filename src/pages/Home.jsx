@@ -5,7 +5,7 @@ import FindMaxLength from "../visualizations/FindMaxLength.jsx";
 import SubarraySumEqualsK from "../visualizations/SubarraySumEqualsK.jsx";
 import InsertInterval from "../visualizations/InsertInterval.jsx";
 import NonOverlappingIntervals from "../visualizations/NonOverlappingIntervals.jsx";
-import CapitalizeTitle from "../visualizations/CapitalizeTitle.jsx";
+import StringProblems from "../visualizations/StringProblems.jsx";
 
 function ThemeToggle({ theme, onToggle }) {
   const isDark = theme === "dark";
@@ -280,8 +280,15 @@ export default function Home() {
             <InsertInterval />
           ) : selectedLesson.id === "non-overlapping-intervals" ? (
             <NonOverlappingIntervals />
-          ) : selectedLesson.id === "capitalize-title" ? (
-            <CapitalizeTitle />
+          ) : selectedLesson.id === "valid-palindrome" ||
+            selectedLesson.id === "reverse-words" ||
+            selectedLesson.id === "string-compression" ||
+            selectedLesson.id === "reverse-only-letters" ||
+            selectedLesson.id === "capitalize-title" ? (
+            <StringProblems
+              key={selectedLesson.id}
+              problemId={selectedLesson.id}
+            />
           ) : (
             <div className="panel">
               <h2>Lesson not found</h2>

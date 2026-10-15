@@ -65,12 +65,42 @@ export const topics = [
           "Use two pointers to lowercase each word, then capitalize its first character only when the word has more than two characters.",
         leetcodeUrl: "https://leetcode.com/problems/capitalize-the-title/",
       },
+
       {
-        id: "palindrome",
-        title: "Valid Palindrome",
+        id: "valid-palindrome",
+        title: "125. Valid Palindrome",
         difficulty: "Easy",
-        status: "planned",
-        description: "Use two pointers to compare characters from both ends.",
+        status: "available",
+        description:
+          "Filter out punctuation, normalize letters to lowercase, and compare characters using two pointers.",
+        leetcodeUrl: "https://leetcode.com/problems/valid-palindrome/",
+      },
+      {
+        id: "reverse-words",
+        title: "151. Reverse Words in a String",
+        difficulty: "Medium",
+        status: "available",
+        description:
+          "Skip extra spaces, extract each word with two indices, and insert words at the front of the result.",
+        leetcodeUrl: "https://leetcode.com/problems/reverse-words-in-a-string/",
+      },
+      {
+        id: "string-compression",
+        title: "443. String Compression",
+        difficulty: "Medium",
+        status: "available",
+        description:
+          "Count consecutive character groups and write their compressed representation in place.",
+        leetcodeUrl: "https://leetcode.com/problems/string-compression/",
+      },
+      {
+        id: "reverse-only-letters",
+        title: "917. Reverse Only Letters",
+        difficulty: "Easy",
+        status: "available",
+        description:
+          "Reverse letters with two pointers while keeping punctuation in its original position.",
+        leetcodeUrl: "https://leetcode.com/problems/reverse-only-letters/",
       },
     ],
   },
